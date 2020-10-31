@@ -20,4 +20,16 @@ public class Cart
 	{
 		return items.size();
 	}
+	
+	public double getFullPrice()
+	{
+		double price = 0.0;
+		
+		for (var item : items)
+		{
+			price += item.getPrice();
+		}
+		
+		return price;
+	}
 }
