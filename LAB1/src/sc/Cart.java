@@ -11,6 +11,18 @@ public class Cart
 		items.add(item);
 	}
 
+	public void removeItemPiece(Item item)
+	{
+		if (item.getAmount() < 2)
+		{
+			removeItem(item);
+		}
+		else
+		{
+			item.setAmount(item.getAmount() - 1);
+		}
+	}
+
 	public void removeItem(Item item)
 	{
 		items.remove(item);
@@ -18,7 +30,14 @@ public class Cart
 	
 	public int getItemCount()
 	{
-		return items.size();
+		int amount = 0;
+		
+		for (var item : items)
+		{
+			amount += item.getAmount();
+		}
+		
+		return amount;
 	}
 	
 	public double getFullPrice()
@@ -27,7 +46,7 @@ public class Cart
 		
 		for (var item : items)
 		{
-			price += item.getPrice();
+			price += item.getPrice() * item.getAmount();
 		}
 		
 		return price;
