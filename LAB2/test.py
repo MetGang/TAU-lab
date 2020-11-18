@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from msedge.selenium_tools import Edge, EdgeOptions
 import logging
 import time
 
@@ -153,7 +154,16 @@ def test_2(driver):
 
 # ----------------------------------------------------------------
 
-with webdriver.Edge(executable_path = 'msedgedriver.exe') as driver:
+# https://stackoverflow.com/questions/63800954/i-am-using-microsoft-edge-chromium-with-selenium-and-i-keep-on-getting-the-msedg
+# https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium?tabs=python
+
+edgeOptions = EdgeOptions()
+edgeOptions.use_chromium = True
+edgeOptions.binary_location = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+edgeOptions.add_argument('--headless')
+edgeOptions.add_experimental_option('excludeSwitches', [ 'enable-logging' ])
+
+with Edge(options = edgeOptions) as driver:
     driver.maximize_window()
     logger.info('Testowanie w Microsoft Edge')
     logger.info('Test 1. scenariusz 1. zakończony ' + ('sukcesem' if test_1a(driver) else 'porażką'))
