@@ -19,3 +19,5 @@ Użytkownik otwiera dowolną, zmaksymalizowaną przeglądarkę, wpisuje adres `v
 Użytkownik otwiera dowolną, zmaksymalizowaną przeglądarkę, wpisuje adres `allegro.pl` i klika enter. Po wejściu na stronę wpisuje frazę `kostka rubika` w pole wyszukiwania po czym klika przycisk `Szukaj`. Po przejściu na kolejną stronę, użytkownik wybiera pierwszą promowaną ofertę, dodaje ją do koszyka, do którego potem przechodzi i klika przycisk dotyczący metody płatności. Jeśli użytkownik nie był wcześniej zalogowany - proszony jest o zalogowanie.
 
 ### Scenariusz 2
+
+Użytkownik otwiera dowolną, zmaksymalizowaną przeglądarkę, wpisuje adres `allegro.pl` i klika enter. Po wejściu na stronę klika w kategorię `Elektronika` po czym klika w podkategorię `Fotografia`. Po przejściu na kolejną stronę, użytkownik wybiera sortowanie ofert od najnowszych przedmiotów.

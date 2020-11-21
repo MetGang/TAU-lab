@@ -160,7 +160,7 @@ def test_2a(driver):
     try:
         get_element(driver, By.CSS_SELECTOR, 'button[data-role="close-and-accept-consent"]').click()
     except:
-        logger.warn('Brak powiadomienia o ciasteczkach')
+        logger.warning('Brak powiadomienia o ciasteczkach')
 
     logger.info('Wprowadzam frazę do szukania')
     try:
@@ -208,6 +208,53 @@ def test_2a(driver):
 
     return True
 
+# ---------------------------------------------------------------
+
+def test_2b(driver):
+    logger.info('Test 2. scenariusz 2.')
+
+    logger.info('Przechodzę na stronę Allegro')
+    driver.get('https://allegro.pl/')
+    logger.info('Jestem na stronie "' + driver.title + '"')
+
+    logger.info('Zamykam powiedomienie o ciasteczkach')
+    try:
+        get_element(driver, By.CSS_SELECTOR, 'button[data-role="close-and-accept-consent"]').click()
+    except:
+        logger.warning('Brak powiadomienia o ciasteczkach')
+    
+    logger.info('Klikam kategorię z elektroniką')
+    try:
+        get_element(driver, By.CSS_SELECTOR, 'a[href="/dzial/elektronika"]').click()
+    except:
+        logger.error('Brak linku do kategorii z elektroniką')
+        return False
+    
+    logger.info('Klikam podkategorię z fotografią')
+    try:
+        get_element(driver, By.CSS_SELECTOR, 'a[href="/kategoria/fotografia"]').click()
+    except:
+        logger.error('Brak linku do podkategorii z fotografią')
+        return False
+    
+    logger.info('Klikam w listę sortowania przedmiotów')
+    try:
+        get_element(driver, By.CSS_SELECTOR, 'select[data-value="m"]').click()
+    except:
+        logger.error('Brak listy do sortowania przedmiotów')
+        return False
+
+    logger.info('Wybieram sortowanie od najnowszego przedmiotu')
+    try:
+        get_element(driver, By.CSS_SELECTOR, 'option[data-value="n"]').click()
+    except:
+        logger.error('Brak możliwości sortowania od najnowszego przedmiotu')
+        return False
+
+    time.sleep(5)
+
+    return True
+
 # ----------------------------------------------------------------
 
 # https://stackoverflow.com/questions/63800954/i-am-using-microsoft-edge-chromium-with-selenium-and-i-keep-on-getting-the-msedg
@@ -225,6 +272,7 @@ with Edge(options = edgeOptions) as driver:
     logger.info('Test 1. scenariusz 1. zakończony ' + ('sukcesem' if test_1a(driver) else 'porażką'))
     logger.info('Test 1. scenariusz 2. zakończony ' + ('sukcesem' if test_1b(driver) else 'porażką'))
     logger.info('Test 2. scenariusz 1. zakończony ' + ('sukcesem' if test_2a(driver) else 'porażką'))
+    logger.info('Test 2. scenariusz 2. zakończony ' + ('sukcesem' if test_2b(driver) else 'porażką'))
 
 # ----------------------------------------------------------------
 
@@ -238,6 +286,7 @@ with webdriver.Chrome(executable_path = 'chromedriver.exe') as driver:
     logger.info('Test 1. scenariusz 1. zakończony ' + ('sukcesem' if test_1a(driver) else 'porażką'))
     logger.info('Test 1. scenariusz 2. zakończony ' + ('sukcesem' if test_1b(driver) else 'porażką'))
     logger.info('Test 2. scenariusz 1. zakończony ' + ('sukcesem' if test_2a(driver) else 'porażką'))
+    logger.info('Test 2. scenariusz 2. zakończony ' + ('sukcesem' if test_2b(driver) else 'porażką'))
 
 # ----------------------------------------------------------------
 
@@ -251,3 +300,4 @@ with webdriver.Firefox(executable_path = 'geckodriver.exe') as driver:
     logger.info('Test 1. scenariusz 1. zakończony ' + ('sukcesem' if test_1a(driver) else 'porażką'))
     logger.info('Test 1. scenariusz 2. zakończony ' + ('sukcesem' if test_1b(driver) else 'porażką'))
     logger.info('Test 2. scenariusz 1. zakończony ' + ('sukcesem' if test_2a(driver) else 'porażką'))
+    logger.info('Test 2. scenariusz 2. zakończony ' + ('sukcesem' if test_2b(driver) else 'porażką'))
