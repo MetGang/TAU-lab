@@ -129,4 +129,20 @@ public class CartTest
 			assertTrue(true);
 		}
 	}
+
+	@Test
+	public void test_7()
+	{
+		try
+		{
+			@SuppressWarnings("unused")
+			Item item = new Item("Baguette", -1.05, -3);
+			
+		    fail("Should have thrown an exception");
+		}
+		catch(IllegalArgumentException e)
+		{
+			assertTrue(true);
+		}
+	}
 }
