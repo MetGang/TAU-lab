@@ -21,7 +21,14 @@ public class Item
 
 	public void setName(String name)
 	{
-		this.name = name;
+		if (name.isEmpty())
+		{
+			throw new IllegalArgumentException();
+		}
+		else
+		{
+			this.name = name;
+		}
 	}
 
 	public double getPrice()
@@ -57,5 +64,9 @@ public class Item
 			this.amount = amount;
 		}
 	}
-
+	
+	public boolean isExpensive()
+	{
+		return price > 100.0;
+	}
 }

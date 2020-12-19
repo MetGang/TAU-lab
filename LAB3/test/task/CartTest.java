@@ -145,4 +145,36 @@ public class CartTest
 			assertTrue(true);
 		}
 	}
+
+	@Test
+	public void test_8()
+	{
+		try
+		{
+			@SuppressWarnings("unused")
+			Item item = new Item("", 1.05, 3);
+			
+		    fail("Should have thrown an exception");
+		}
+		catch(IllegalArgumentException e)
+		{
+			assertTrue(true);
+		}
+	}
+
+	@Test
+	public void test_9()
+	{
+		Item item = new Item("Baguette", 112.05, 1);
+		
+		assertTrue(item.isExpensive());
+	}
+
+	@Test
+	public void test_10()
+	{
+		Item item = new Item("Baguette", 1.05, 1);
+		
+		assertFalse(item.isExpensive());
+	}
 }
