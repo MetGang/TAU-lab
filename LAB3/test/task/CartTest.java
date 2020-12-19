@@ -1,7 +1,9 @@
 package task;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
 
 import sc.Cart;
 import sc.Item;
