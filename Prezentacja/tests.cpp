@@ -55,7 +55,7 @@ TEST_CASE( "Zmiana rozmiaru std::vector testując z TEST_CASE", "[std::vector]" 
     }
 }
 
-SCENARIO( "Zmiana rozmiaru std::vector testując z TEST_CASE", "[std::vector]" )
+SCENARIO( "Zmiana rozmiaru std::vector testując z SCENARIO", "[std::vector]" )
 {
     GIVEN( "std::vector z 6 numerami" )
     {
