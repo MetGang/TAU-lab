@@ -109,3 +109,32 @@ SCENARIO( "Zmiana rozmiaru std::vector testując z SCENARIO", "[std::vector]" )
         }
     }
 }
+
+TEST_CASE( "Pusty test, który kończy się sukcesem", "[compilation-only]")
+{
+    SUCCEED( "Działa!" );
+}
+
+TEST_CASE( "Testowanie losowych liczb całkowitych w zakresie", "[generator]" )
+{
+    SECTION( "50 liczb całkowitych w zakresie [-100, 100]" )
+    {
+        auto i = GENERATE(take(50, random(-100, 100)));
+
+        REQUIRE( i >= -100 );
+        REQUIRE( i <= 100 );
+    }
+
+    SECTION( "100 liczb całkowitych w zakresie [-1000, 1000]" )
+    {
+        auto i = GENERATE(take(100, random(-1000, 1000)));
+
+        REQUIRE( i >= -1000 );
+        REQUIRE( i <= 1000 );
+    }
+}
+
+TEST_CASE( "Testowanie wyrzucania wyjątków", "[exception]" )
+{
+    CHECK_THROWS(throw nullptr);
+}
