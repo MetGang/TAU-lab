@@ -9,7 +9,7 @@ Dlatego ludzie wpadli na pomysł aby testować zawodne oprogramowanie innym, mni
 
 ### Dlaczego warto użyć zewnętrznej biblioteki?
 
-*Własnoręczne testowanie kodu może być zabawne... ale tylko pierwszy raz.*
+*Własnoręczne testowanie kodu może być zabawne... ale tylko pierwszy raz.* - Phil Nash; CppCon 2018
 
 O ile przy pisaniu drobnej funkcjonalności lub małego programu mozemu pozwolić sobie na ręczne napisanie testu, wstawienia instrukcji warunkowej czy assercji, to jednak przy projektach większego kalibru mamy zazwyczaj do czynienia z większą złożonością kodu, co przekłada się na jego potencjalnie większą zawodność. W prostych słowach - im wiecej kodu tym trudniej go samemu ogarnąć, a pisanie do każdej sytuacji własnego testu jest pracochłonne i zazwyczaj nieopłacalne.
 Jeśli dodatkowo zaczniemy sami pisać podręczną bibliotekę do testowania, skończymy na tym, że zamiast zajmować się właściwym projektem zaczęliśmy pisać własną bibliotekę do testowania.
