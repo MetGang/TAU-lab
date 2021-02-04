@@ -11,6 +11,11 @@ response = requests.get(api_url)
 assert response.ok
 
 data = json.loads(response.content)[0]
+
+assert 'url' in data
+assert 'width' in data
+assert 'height' in data
+
 url = data['url']
 width = data['width']
 height = data['height']
