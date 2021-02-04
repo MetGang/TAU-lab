@@ -1,8 +1,8 @@
+import io
 import json
 import requests
+import PIL
 import matplotlib.pyplot as plt
-from PIL import Image
-from io import BytesIO
 
 api_url = 'https://api.thecatapi.com/v1/images/search'
 
@@ -10,11 +10,15 @@ response = requests.get(api_url)
 
 assert response.ok
 
-data = json.loads(response.content)[0]
+predata = json.loads(response.content)
 
-assert 'url' in data
-assert 'width' in data
-assert 'height' in data
+assert type(predata) == list
+
+data = predata[0]
+
+assert 'url' in data and type(data['url']) == str
+assert 'width' in data and type(data['width']) == int
+assert 'height' in data and type(data['height']) == int
 
 url = data['url']
 width = data['width']
@@ -24,7 +28,7 @@ sub_response = requests.get(url)
 
 assert sub_response.ok
 
-img = Image.open(BytesIO(sub_response.content))
+img = PIL.Image.open(io.BytesIO(sub_response.content))
 
 plt.xticks([])
 plt.yticks([])
